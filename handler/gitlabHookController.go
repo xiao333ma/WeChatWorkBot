@@ -54,7 +54,7 @@ func pushHandler(c *gin.Context, hookModel model.GitLabHookModel)  {
 	msgContent += "你可以点击" + utils.WhiteSpace()
 	msgContent += utils.Link("这里", hookModel.Commits[0].Url)
 	msgContent += utils.WhiteSpace() + "查看"
-	utils.PostData(robot, msgContent)
+	utils.PostData(robot, msgContent, false)
 }
 
 func mergeRequestHandler(c *gin.Context, hookModel model.GitLabHookModel) {
@@ -83,7 +83,7 @@ func mergeRequestHandler(c *gin.Context, hookModel model.GitLabHookModel) {
 	msgContent += "你可以点击" + utils.WhiteSpace()
 	msgContent += utils.Link("这里", hookModel.ObjectAttributes.Url)
 	msgContent += utils.WhiteSpace() + "查看 批准 评论"
-	utils.PostData(robot, msgContent)
+	utils.PostData(robot, msgContent, true)
 }
 
 func tagPushHandler(c *gin.Context, hookModel model.GitLabHookModel)  {
@@ -105,7 +105,7 @@ func tagPushHandler(c *gin.Context, hookModel model.GitLabHookModel)  {
 	msgContent += "👉 仓库: " + utils.Link(hookModel.Project.Name, hookModel.Project.GitHttpUrl) + utils.Newline()
 	msgContent += "👉 Tag: " + utils.GreenString(hookModel.Ref) + utils.Newline()
 	msgContent += "👉 信息: " + hookModel.Message + utils.Newline()
-	utils.PostData(robot, msgContent)
+	utils.PostData(robot, msgContent, false)
 }
 
 func preProcess(hookModel *model.GitLabHookModel) {
