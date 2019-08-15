@@ -73,7 +73,7 @@ func mergeRequestHandler(c *gin.Context, hookModel model.GitLabHookModel) {
 	title += option + "了一个 Merge Request 👏"
 
 	msgContent := utils.Title(4, title) + utils.Newline()
-	msgContent += utils.GreenString(hookModel.UserName)
+	msgContent += utils.GreenString(hookModel.User.Name)
 	msgContent += utils.WhiteSpace() + "在" + utils.WhiteSpace()
 	msgContent += hookModel.ObjectAttributes.CreatedAt + utils.WhiteSpace() + option + "了一个 Merge Request" + utils.Newline()
 	msgContent += "信息如下" + utils.Newline()
