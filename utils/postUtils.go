@@ -8,13 +8,14 @@ import (
 	"net/http"
 )
 
-func PostData(url string, content string, atAll bool)  {
+func PostTextData(url string, content string, atAll bool) {
+	atMessage := textMessage(content, atAll)
+	post(url, atMessage)
+}
+
+func PostMarkdownData(url string, content string,)  {
 	jsonStr := markdownMsg(content)
 	post(url, jsonStr)
-	if atAll {
-		atMessage := textMessage("请大佬们处理👆👆👆")
-		post(url, atMessage)
-	}
 }
 
 func post(url string, jsonStr []byte)  {
@@ -41,12 +42,16 @@ func markdownMsg(s string) []byte {
 	return b
 }
 
-func textMessage(s string) []byte  {
+func textMessage(s string, atAll bool) []byte  {
+	atString := ""
+	if atAll {
+		atString = "@all"
+	}
 	jsonObj := map[string]interface{}{
 		"msgtype": "text",
 		"text": map[string]interface{}{
 			"content": s,
-			"mentioned_mobile_list": []string{"@all"},
+			"mentioned_mobile_list": []string{atString},
 		},
 	}
 	b, _ := json.Marshal(jsonObj)

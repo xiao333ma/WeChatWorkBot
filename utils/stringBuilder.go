@@ -51,6 +51,7 @@ func CommitMessage(hookModel model.GitLabHookModel) string  {
 	line := ""
 	for i := len(hookModel.Commits) - 1; i >= 0; i-- {
 		s := hookModel.Commits[i].Message
+		s = strings.Replace(s, "#", "", -1)
 		arr := strings.Split(s, "\n")
 		for _, value := range arr {
 			line += Ref(value) + Newline()
