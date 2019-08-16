@@ -1,10 +1,5 @@
 package utils
 
-import (
-	"WeChatWorkRobot/model"
-	"strings"
-)
-
 func GreenString (s string) string  {
 	return `<font color="info">` + s + `</font>`
 }
@@ -47,15 +42,3 @@ func WhiteSpace () string  {
 	return " "
 }
 
-func CommitMessage(hookModel model.GitLabHookModel) string  {
-	line := ""
-	for i := len(hookModel.Commits) - 1; i >= 0; i-- {
-		s := hookModel.Commits[i].Message
-		s = strings.Replace(s, "#", "", -1)
-		arr := strings.Split(s, "\n")
-		for _, value := range arr {
-			line += Ref(value) + Newline()
-		}
-	}
-	return line + Newline()
-}

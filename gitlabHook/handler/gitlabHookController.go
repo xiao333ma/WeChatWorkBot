@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"WeChatWorkRobot/model"
+	"WeChatWorkRobot/gitlabHook/model"
 	"WeChatWorkRobot/utils"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -54,7 +54,7 @@ func pushHandler(handler *gitlabHookHandler, hookModel model.GitLabHookModel)  {
 	msgContent += "👉 仓库: " + utils.Link(hookModel.Project.Name, hookModel.Project.GitHttpUrl) + utils.Newline()
 	msgContent += "👉 分支: " + utils.GreenString(hookModel.Ref) + utils.Newline()
 	msgContent += "👉 信息: " + utils.Newline()
-	msgContent += utils.CommitMessage(hookModel)
+	msgContent += commitMessage(hookModel)
 	msgContent += "你可以点击" + utils.WhiteSpace()
 	msgContent += utils.Link("这里", getLastCommitURL(hookModel))
 	msgContent += utils.WhiteSpace() + "查看"
@@ -156,4 +156,17 @@ func formatMergeRequestTime(stringTime string) string {
 	theTime = time.Unix(timeStamp, 0)
 	s := theTime.Format("2006-01-02 15:04:05")
 	return s
+}
+
+func commitMessage(hookModel model.GitLabHookModel) string  {
+	line := ""
+	for i := len(hookModel.Commits) - 1; i >= 0; i-- {
+		s := hookModel.Commits[i].Message
+		s = strings.Replace(s, "#", "", -1)
+		arr := strings.Split(s, "\n")
+		for _, value := range arr {
+			line += utils.Ref(value) + utils.Newline()
+		}
+	}
+	return line + utils.Newline()
 }

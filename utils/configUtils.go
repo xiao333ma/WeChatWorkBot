@@ -7,6 +7,7 @@ import (
 
 type configModel struct {
 	GitlabHooks []GitlabHooksModel `json:"gitlabHooks"`
+	Life []string `json:"life"`
 }
 
 type GitlabHooksModel struct {
@@ -26,6 +27,16 @@ func GetWeChatRobotURL(gitURL string) string {
 		}
 	}
 	return ""
+}
+
+func GetLifeWeChatRobotURL() []string {
+	config, err := readConfigJSON()
+	if err != nil {
+		return []string{}
+	}
+
+	return config.Life
+
 }
 
 func readConfigJSON() (configModel, error) {

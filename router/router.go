@@ -1,7 +1,7 @@
 package router
 
 import (
-	"WeChatWorkRobot/handler"
+	"WeChatWorkRobot/gitlabHook/handler"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )
