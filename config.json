@@ -1,22 +1,12 @@
 {
   "gitlabHooks":[
     {
-      "gitlabURL": "https://gitlab.luojilab.com/fanwenqiang/DD-Project.git",
-      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9"
-    },
-    {
-      "gitlabURL": "https://gitlab.luojilab.com/igc-ios/IGCLive.git",
-      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9"
-    },
-    {
-      "gitlabURL": "https://gitlab.luojilab.com/mazhensai/test.git",
-      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9"
+      "gitlabURL": "your/gitlab/repo/path",
+      "weChatRobotURL": "your/weChatWork/Bot/URL"
     }
   ],
 
   "life": [
-    "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=f1d7cfa5-f4dd-4ee5-bfc0-b58a6e5f5409",
-    "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9"
+    "your/weChatWork/Bot/URL"
   ]
-
 }

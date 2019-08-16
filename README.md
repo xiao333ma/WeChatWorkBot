@@ -10,15 +10,24 @@ Gitlab
 
 Life
 
-- [ ] 提醒喝水
-- [ ] 提醒订饭
+- [x] 提醒喝水
+- [x] 提醒订饭
+- [x] 提醒下班
 
 ### Usage
 
-1. 修改 `config.go`, `key` 为 `gitlab webhook` 地址，`value` 为企业微信`机器人地址` 
+#### gitlabHooks
+
+1. 修改 `config.json` 中的 `gitlabHooks`
+`gitlabURL` 为 仓库地址
+`weChatRobotURL` 为 企业微信机器人地址
+
+#### life
+
+1. 修改 `config.json` 中的 `life`，在数组中添加`企业微信机器人地址`
+
+#### 部署
 1. 把代码部署到服务器上
 2. 在 `gitlab webhook` 上，填入服务器接口地址 `you.server.domain:9091/gitlabHook`
 
-
-
-想加什么功能，请提交 `issue` 或者 `Merge Request`
+想加什么功能，请提交 `issue` 或者 `Pull Request`
