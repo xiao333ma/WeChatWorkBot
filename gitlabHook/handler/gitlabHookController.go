@@ -115,10 +115,6 @@ func tagPushHandler(handler *gitlabHookHandler, hookModel model.GitLabHookModel)
 
 func preProcess(hookModel *model.GitLabHookModel) {
 	hookModel.Ref = getCommitBranch(hookModel.Ref)
-	if len(hookModel.Commits) > 0 {
-		hookModel.Commits[0].Timestamp = strings.Replace(hookModel.Commits[0].Timestamp, "T", " ", -1)
-		hookModel.Commits[0].Timestamp = strings.Replace(hookModel.Commits[0].Timestamp, "Z", " ", -1)
-	}
 }
 
 
@@ -143,18 +139,14 @@ func getLastCommit(hookModel model.GitLabHookModel) model.GitLabHookModelCommits
 func formatPushTime(stringTime string) string  {
 	loc, _ := time.LoadLocation("Local")
 	theTime, _ := time.ParseInLocation("2006-01-02T15:04:05Z", stringTime, loc)
-	timeStamp := theTime.Unix() + 8 * 60 * 60
-	theTime = time.Unix(timeStamp, 0)
-	s := theTime.Format("2006-01-02 15:04:05")
+	s := theTime.Add(time.Hour * 8).Format("2006-01-02 15:04:05")
 	return s
 }
 
 func formatMergeRequestTime(stringTime string) string {
 	loc, _ := time.LoadLocation("Local")
 	theTime, _ := time.ParseInLocation("2006-01-02 15:04:05 UTC", stringTime, loc)
-	timeStamp := theTime.Unix() + 8 * 60 * 60
-	theTime = time.Unix(timeStamp, 0)
-	s := theTime.Format("2006-01-02 15:04:05")
+	s := theTime.Add(time.Hour * 8).Format("2006-01-02 15:04:05")
 	return s
 }
 
