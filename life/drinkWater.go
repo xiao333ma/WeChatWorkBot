@@ -39,7 +39,9 @@ func SetupDrinkWater()  {
 }
 
 func handleDrinkWater(s string)  {
-	for _, url := range utils.GetLifeWeChatRobotURL() {
-		utils.PostTextData(url, s, true)
+	for _, m := range utils.GetLifeWeChatRobotURL() {
+		if m.DrinkWater {
+			utils.PostTextData(m.WeChatRobotURL, s, true)
+		}
 	}
 }

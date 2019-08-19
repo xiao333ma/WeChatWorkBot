@@ -32,7 +32,9 @@ func SetupOffDuty()  {
 }
 
 func handleOffDuty(s string) {
-	for _, url := range utils.GetLifeWeChatRobotURL() {
-		utils.PostTextData(url, s, true)
+	for _, m := range utils.GetLifeWeChatRobotURL() {
+		if m.OffDuty {
+			utils.PostTextData(m.WeChatRobotURL, s, true)
+		}
 	}
 }

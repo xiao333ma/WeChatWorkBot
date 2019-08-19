@@ -2,11 +2,19 @@
   "gitlabHooks":[
     {
       "gitlabURL": "your/gitlab/repo/path",
-      "weChatRobotURL": "your/weChatWork/Bot/URL"
+      "weChatRobotURL": "your/weChatWork/Bot/URL",
+      "push": true,
+      "merge": true,
+      "tag": true
     }
   ],
 
   "life": [
-    "your/weChatWork/Bot/URL"
+    {
+      "weChatRobotURL": "your/weChatWork/Bot/URL",
+      "drinkWater": true,
+      "offDuty": true,
+      "orderMeal": true
+    }
   ]
 }

@@ -18,7 +18,7 @@ func NewGitlabHookHandler() *gitlabHookHandler {
 	return &gitlabHookHandler{}
 }
 
-type eventHandler func (handler *gitlabHookHandler, model model.GitLabHookModel)
+type eventHandler func (model model.GitLabHookModel)
 
 var eventHandlerMap = map[string]eventHandler{
 	"push": pushHandler,
@@ -34,18 +34,19 @@ func (handler *gitlabHookHandler)HandleBusiness (c *gin.Context)  {
 		fmt.Println("转换错误")
 	}
 	preProcess(&m)
-	handler.weChatBotURL = utils.GetWeChatRobotURL(m.Project.GitHttpUrl)
 	f, exist := eventHandlerMap[m.Name()]
 
-
 	if exist {
-		f(handler, m)
+		f(m)
 	}
 }
 
-func pushHandler(handler *gitlabHookHandler, hookModel model.GitLabHookModel)  {
-
-	robot := handler.weChatBotURL
+func pushHandler(hookModel model.GitLabHookModel)  {
+	m  := utils.GetGitLabWeChatRobotURL(hookModel.Project.GitHttpUrl)
+	if !m.Push {
+		return
+	}
+	robot := m.WeChatRobotURL
 	msgContent := utils.Title(3, "有人 push 代码啦 👏 ") + utils.Newline()
 	msgContent += utils.GreenString(hookModel.UserName)
 	msgContent += utils.WhiteSpace() + "在" + utils.WhiteSpace()
@@ -61,12 +62,15 @@ func pushHandler(handler *gitlabHookHandler, hookModel model.GitLabHookModel)  {
 	utils.PostMarkdownData(robot, msgContent)
 }
 
-func mergeRequestHandler(handler *gitlabHookHandler, hookModel model.GitLabHookModel) {
+func mergeRequestHandler(hookModel model.GitLabHookModel) {
 	if hookModel.ObjectAttributes.State != "opened" && hookModel.ObjectAttributes.State != "closed" {
 		return
 	}
-	robot := handler.weChatBotURL
-
+	m  := utils.GetGitLabWeChatRobotURL(hookModel.Project.GitHttpUrl)
+	if !m.Merge {
+		return
+	}
+	robot := m.WeChatRobotURL
 	title := "有人"
 	option := ""
 	if hookModel.ObjectAttributes.State == "opened" {
@@ -91,8 +95,12 @@ func mergeRequestHandler(handler *gitlabHookHandler, hookModel model.GitLabHookM
 	utils.PostTextData(robot, "请大佬们处理👆👆👆", true)
 }
 
-func tagPushHandler(handler *gitlabHookHandler, hookModel model.GitLabHookModel)  {
-	robot := handler.weChatBotURL
+func tagPushHandler(hookModel model.GitLabHookModel)  {
+	m  := utils.GetGitLabWeChatRobotURL(hookModel.Project.GitHttpUrl)
+	if !m.Merge {
+		return
+	}
+	robot := m.WeChatRobotURL
 
 	title := "有人"
 	option := ""

@@ -7,32 +7,41 @@ import (
 
 type configModel struct {
 	GitlabHooks []GitlabHooksModel `json:"gitlabHooks"`
-	Life []string `json:"life"`
+	Life []LifeModel `json:"life"`
 }
 
 type GitlabHooksModel struct {
 	GitlabURL      string `json:"gitlabURL"`
 	WeChatRobotURL string `json:"weChatRobotURL"`
+	Push bool `json:"push"`
+	Merge bool `json:"merge"`
+	Tag bool `json:"tag"`
 }
 
+type LifeModel struct {
+	WeChatRobotURL string `json:"weChatRobotUrl"`
+	DrinkWater bool `json:"drinkWater"`
+	OffDuty bool `json:"offDuty"`
+	OrderMeal bool `json:"orderMeal"`
+}
 
-func GetWeChatRobotURL(gitURL string) string {
+func GetGitLabWeChatRobotURL(gitURL string) GitlabHooksModel {
 	config, err := readConfigJSON()
 	if err != nil {
-		return ""
+		return GitlabHooksModel{}
 	}
 	for _, value := range config.GitlabHooks {
 		if value.GitlabURL == gitURL {
-			return value.WeChatRobotURL
+			return value
 		}
 	}
-	return ""
+	return GitlabHooksModel{}
 }
 
-func GetLifeWeChatRobotURL() []string {
+func GetLifeWeChatRobotURL() []LifeModel {
 	config, err := readConfigJSON()
 	if err != nil {
-		return []string{}
+		return []LifeModel{}
 	}
 
 	return config.Life
