@@ -20,15 +20,21 @@ Life
 #### gitlabHooks
 
 1. 修改 `config.json` 中的 `gitlabHooks`
+
 ```json
 {
       "gitlabURL": "your/gitlab/repo/path",
       "weChatRobotURL": "your/weChatWork/Bot/URL",
-      "push": true or false to handle push event,
-      "merge": true or false to handle merge event,
-      "tag": true or false to handle tag event
+      "push": true,
+      "merge": true,
+      "tag": true
 }
 ```
+字段含义
+
+push 是否处理 push
+merge 是否处理 merge
+tag 是否处理 tag
 
 #### life
 
@@ -37,12 +43,19 @@ Life
 ```json
  {
       "weChatRobotURL": "your/weChatWork/Bot/URL",
-      "drinkWater": true or false to alert drink water,
-      "offDuty": true or false to alert off duty,
-      "orderMeal": true or false to alert order meal,
-      "pee": true or false to alert pee
+      "drinkWater": true,
+      "offDuty": true,
+      "orderMeal": true,
+      "pee": true
  }
 ```
+
+字段含义
+
+drinkWater 是否提醒喝水
+offDuty 是否提醒下班
+orderMeal 是否提醒订饭
+pee 是否提醒嘘嘘
 
 #### 部署
 1. 编译并部署到服务器上
