@@ -19,7 +19,7 @@ Life
 
 #### gitlabHooks
 
-1. 修改 `config.json` 中的 `gitlabHooks`
+修改 `config.json` 中的 `gitlabHooks`
 
 ```json
 {
@@ -32,13 +32,13 @@ Life
 ```
 字段含义
 
-push 是否处理 push
-merge 是否处理 merge
-tag 是否处理 tag
+1. push 是否处理 push
+2. merge 是否处理 merge
+3. tag 是否处理 tag
 
 #### life
 
-1. 修改 `config.json` 中的 `life`，在数组中添加如下 json 对象
+修改 `config.json` 中的 `life`，在数组中添加如下 json 对象
 
 ```json
  {
@@ -52,10 +52,10 @@ tag 是否处理 tag
 
 字段含义
 
-drinkWater 是否提醒喝水
-offDuty 是否提醒下班
-orderMeal 是否提醒订饭
-pee 是否提醒嘘嘘
+1. drinkWater 是否提醒喝水
+2. offDuty 是否提醒下班
+3. orderMeal 是否提醒订饭
+4. pee 是否提醒嘘嘘
 
 #### 部署
 1. 编译并部署到服务器上
