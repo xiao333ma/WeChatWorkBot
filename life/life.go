@@ -4,4 +4,5 @@ func Setup()  {
 	SetupDrinkWater()
 	SetUpOrderOrEatMeal()
 	SetupOffDuty()
+	SetupPee()
 }

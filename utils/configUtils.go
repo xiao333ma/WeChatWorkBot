@@ -23,6 +23,7 @@ type LifeModel struct {
 	DrinkWater bool `json:"drinkWater"`
 	OffDuty bool `json:"offDuty"`
 	OrderMeal bool `json:"orderMeal"`
+	Pee bool `json:"pee"`
 }
 
 func GetGitLabWeChatRobotURL(gitURL string) GitlabHooksModel {
@@ -43,9 +44,7 @@ func GetLifeWeChatRobotURL() []LifeModel {
 	if err != nil {
 		return []LifeModel{}
 	}
-
 	return config.Life
-
 }
 
 func readConfigJSON() (configModel, error) {
