@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbd9374c-919a-49aa-82e9-9e5e97481bbd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WeChatWorkRobot" beforeDir="false" afterPath="$PROJECT_DIR$/WeChatWorkRobot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gitlabHook/handler/gitlabHookController.go" beforeDir="false" afterPath="$PROJECT_DIR$/gitlabHook/handler/gitlabHookController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gitlabHook/model/gitlabHookModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/gitlabHook/model/gitlabHookModel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/life/offDuty.go" beforeDir="false" afterPath="$PROJECT_DIR$/life/offDuty.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +15,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gitlabHook/handler/gitlabHookController.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
+            <state relative-caret-position="462">
               <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
             </state>
           </provider>
@@ -278,9 +273,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -293,7 +287,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32979318" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31246507" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31203932" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -453,7 +447,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gitlabHook/handler/gitlabHookController.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
+        <state relative-caret-position="462">
           <caret line="72" column="66" selection-start-line="72" selection-start-column="66" selection-end-line="72" selection-end-column="66" />
         </state>
       </provider>
