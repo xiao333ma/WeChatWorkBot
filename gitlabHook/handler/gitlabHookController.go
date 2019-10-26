@@ -63,21 +63,14 @@ func pushHandler(hookModel model.GitLabHookModel)  {
 }
 
 func mergeRequestHandler(hookModel model.GitLabHookModel) {
-	if hookModel.ObjectAttributes.State != "opened" && hookModel.ObjectAttributes.State != "closed" {
-		return
-	}
+
 	m  := utils.GetGitLabWeChatRobotURL(hookModel.Project.GitHttpUrl)
 	if !m.Merge {
 		return
 	}
 	robot := m.WeChatRobotURL
 	title := "有人"
-	option := ""
-	if hookModel.ObjectAttributes.State == "opened" {
-		option = "创建"
-	} else {
-		option = "关闭"
-	}
+	option := model.MergeAction[hookModel.ObjectAttributes.Action]
 	title += option + "了一个 Merge Request 👏"
 
 	msgContent := utils.Title(4, title) + utils.Newline()

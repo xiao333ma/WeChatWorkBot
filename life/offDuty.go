@@ -6,6 +6,14 @@ import (
 
 func SetupOffDuty()  {
 
+	TimingWithDayAt(10, 20, func() {
+		handleOffDuty("看一看有没有需要处理的 MergeRequest 吧😊")
+	})
+
+	TimingWithDayAt(10, 30, func() {
+		handleOffDuty("大佬们开会啦，♪(^∇^*)")
+	})
+
 	TimingWithDayAt(18, 00, func() {
 		handleOffDuty("哎呀，6 点了，要不我们，下班？")
 	})

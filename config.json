@@ -19,10 +19,10 @@
     },
     {
       "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=0ead6ff4-907e-4be0-9841-4b64721322aa",
-      "drinkWater": true,
-      "offDuty": true,
-      "orderMeal": true,
-      "pee": true
+      "drinkWater": false,
+      "offDuty": false,
+      "orderMeal": false,
+      "pee": false
     }
   ]
 }

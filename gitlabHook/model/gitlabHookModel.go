@@ -54,5 +54,13 @@ type GitLabHookModelObjectAttributes struct {
 	SourceBranch string `json:"source_branch"`
 	TargetBranch string `json:"target_branch"`
 	Url string
-	State string
+	Action string
+}
+
+var MergeAction = map[string]string{
+	"open": "创建",
+	"reopen": "重新打开",
+	"approved": "批准",
+	"merge": "合并",
+	"close": "关闭",
 }
