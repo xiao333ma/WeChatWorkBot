@@ -23,7 +23,7 @@ Life
 
 ```json
 {
-      "gitlabURL": "your/gitlab/repo/path",
+      "gitlabURL": "your/gitlab/repo/path.git",
       "weChatRobotURL": "your/weChatWork/Bot/URL",
       "push": true,
       "merge": true,
@@ -32,9 +32,10 @@ Life
 ```
 字段含义
 
-1. push 是否处理 push
-2. merge 是否处理 merge
-3. tag 是否处理 tag
+1. gitlabURL gitlab 仓库地址，https://www.gitlab/some/path.git
+2. push 是否处理 push
+3. merge 是否处理 merge
+4. tag 是否处理 tag
 
 #### life
 
