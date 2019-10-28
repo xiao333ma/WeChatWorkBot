@@ -1,8 +1,22 @@
 {
   "gitlabHooks":[
     {
-      "gitlabURL": "your/gitlab/repo/path",
-      "weChatRobotURL": "your/weChatWork/Bot/URL",
+      "gitlabURL": "https://gitlab.luojilab.com/igc-ios/IGCLive.git",
+      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9",
+      "push": true,
+      "merge": true,
+      "tag": true
+    },
+    {
+      "gitlabURL": "https://gitlab.luojilab.com/juvenile/DDProject.git",
+      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=1f8d73dd-3fdd-4826-a798-01fa09b7dda6",
+      "push": true,
+      "merge": true,
+      "tag": true
+    },
+    {
+      "gitlabURL": "https://gitlab.luojilab.com/igc-ios/IGCProject.git",
+      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9",
       "push": true,
       "merge": true,
       "tag": true
@@ -12,13 +26,6 @@
   "life": [
     {
       "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e591ec2b-4849-4eca-8e77-4b93dd907ec9",
-      "drinkWater": true,
-      "offDuty": true,
-      "orderMeal": true,
-      "pee": false
-    },
-    {
-      "weChatRobotURL": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=0ead6ff4-907e-4be0-9841-4b64721322aa",
       "drinkWater": false,
       "offDuty": false,
       "orderMeal": false,

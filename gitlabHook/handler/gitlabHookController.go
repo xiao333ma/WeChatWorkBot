@@ -85,7 +85,9 @@ func mergeRequestHandler(hookModel model.GitLabHookModel) {
 	msgContent += utils.Link("这里", hookModel.ObjectAttributes.Url)
 	msgContent += utils.WhiteSpace() + "查看 批准 评论"
 	utils.PostMarkdownData(robot, msgContent)
-	utils.PostTextData(robot, "请大佬们处理👆👆👆", true)
+	if hookModel.ObjectAttributes.Action == model.MergeAction_open || hookModel.ObjectAttributes.Action == model.MergeAction_reopen {
+		utils.PostTextData(robot, "请大佬们处理👆👆👆", true)
+	}
 }
 
 func tagPushHandler(hookModel model.GitLabHookModel)  {

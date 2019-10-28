@@ -57,10 +57,16 @@ type GitLabHookModelObjectAttributes struct {
 	Action string
 }
 
+var MergeAction_open = "open"
+var MergeAction_reopen = "reopen"
+var MergeAction_approved = "approved"
+var MergeAction_merge = "merge"
+var MergeAction_close = "close"
+
 var MergeAction = map[string]string{
-	"open": "创建",
-	"reopen": "重新打开",
-	"approved": "批准",
-	"merge": "合并",
-	"close": "关闭",
+	MergeAction_open: "创建",
+	MergeAction_reopen: "重新打开",
+	MergeAction_approved: "批准",
+	MergeAction_merge: "合并",
+	MergeAction_close: "关闭",
 }
